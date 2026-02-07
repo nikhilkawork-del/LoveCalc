@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Percentage Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="heart-container"></div>
+
+    <div class="profile-card">
+        <h1>Love Calculator</h1>
+        
+        {% if not result %}
+        <p class="fixed-name">Checking compatibility <strong>Today</strong></p>
+        <form action="/match" method="post" id="loveForm">
+            <div class="input-group">
+                <input type="text" name="name1" placeholder="First Name" required autocomplete="off">
+                <div class="heart-divider">❤️</div>
+                <input type="text" name="name2" placeholder="Second Name" required autocomplete="off">
+            </div>
+            <button type="submit" class="match-btn">Find Our Score</button>
+        </form>
+        {% else %}
+        <div class="result-area">
+            <h2 class="names-header">{{ result.names }}</h2>
+            <div class="percentage">{{ result.percent }}%</div>
+            <p class="msg">{{ result.message }}</p>
+            <a href="/" class="retry">← Match Someone Else?</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
