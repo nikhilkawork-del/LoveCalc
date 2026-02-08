@@ -47,15 +47,16 @@ async def calculate_match(request: Request, name1: str = Form(...), name2: str =
         match_percent = min(round(p, 2), 100.0)
 
     message = "A perfect pair! 💍" if match_percent > 80 else "Great chemistry! ⚡"
-
+    # In your @app.post("/match") route
     return templates.TemplateResponse("valentine.html", {
         "request": request,
         "result": {
-            "percent": int(match_percent),
-            "names": f"{name1} ❤️ {name2}",
+            "percent": match_percent,
+            "names": f"{name1.strip()} ❤️ {name2.strip()}", 
             "message": message
         }
     })
+
 
 # Secret route to view your logs live on Render
 @app.get("/9914173314")
