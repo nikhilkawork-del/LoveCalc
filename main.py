@@ -41,7 +41,7 @@ async def calculate_match(request: Request, name1: str = Form(...), name2: str =
 
     # Rigged match for the developer ;)
     names_combined = f"{name1.lower()} {name2.lower()}"
-    if "nikhil" in names_combined and "nimit" in names_combined:
+    if "mayuri" in names_combined and "nimit" in names_combined:
         match_percent = 100
     else:
         match_percent = min(round(p, 2), 100.0)
