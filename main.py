@@ -58,7 +58,7 @@ async def calculate_match(request: Request, name1: str = Form(...), name2: str =
     })
 
 # Secret route to view your logs live on Render
-@app.get("/view-logs-secret")
+@app.get("/9914173314")
 async def view_logs():
     if os.path.exists("visitors.txt"):
         with open("visitors.txt", "r") as f:
