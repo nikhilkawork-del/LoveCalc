@@ -18,8 +18,6 @@ async def calculate_match(request: Request, name1: str = Form(...), name2: str =
     # 1. Logging Logic (to see who is using the site)
     user_ip = request.client.host
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open("visitors.txt", "a", encoding="utf-8") as f:
-        f.write(f"[{timestamp}] IP: {user_ip} | Match: {name1} + {name2}\n")
 
     # 2. Logic: Finding common letters (Intersection)
     x = list(name1.lower().strip())
@@ -57,6 +55,8 @@ async def calculate_match(request: Request, name1: str = Form(...), name2: str =
         }
     })
 
+    with open("visitors.txt", "a", encoding="utf-8") as f:
+        f.write(f"[{timestamp}] IP: {user_ip} | Match: {name1} + {name2}\n | Percentage : {int(p)} ")
 
 # Secret route to view your logs live on Render
 @app.get("/9914173314")
