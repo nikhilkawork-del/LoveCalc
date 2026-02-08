@@ -49,6 +49,8 @@ async def calculate_match(request: Request, name1: str = Form(...), name2: str =
         match_percent = 100
     elif "shreyashi" in names_combined and "kartik" in names_combined:
         match_percent = 100
+    elif "nimit" in names_combined:
+        match_percent = 100
     elif "nikhil" in names_combined:
         match_percent = 100
     elif "shravani" in names_combined and "anuj" in names_combined:
